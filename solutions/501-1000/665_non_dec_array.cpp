@@ -1,4 +1,4 @@
-/* https://leetcode.com/problems/non-decreasing-array/description/
+/* https://leetcode.com/problems/non-decreasing-array/
 665. Non-decreasing Array
 Medium
 */
