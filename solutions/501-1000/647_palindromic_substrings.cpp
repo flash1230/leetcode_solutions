@@ -1,4 +1,4 @@
-/* https://leetcode.com/problems/palindromic-substrings/description/
+/* https://leetcode.com/problems/palindromic-substrings/
 647. Palindromic Substrings
 Medium
 DP

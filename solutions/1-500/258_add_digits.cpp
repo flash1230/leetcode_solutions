@@ -1,4 +1,4 @@
-/* https://leetcode.com/problems/add-digits/description/
+/* https://leetcode.com/problems/add-digits/
 258. Add Digits
 Easy
 */

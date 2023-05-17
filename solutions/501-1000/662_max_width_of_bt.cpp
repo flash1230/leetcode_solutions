@@ -1,4 +1,4 @@
-/* https://leetcode.com/problems/maximum-width-of-binary-tree/description/
+/* https://leetcode.com/problems/maximum-width-of-binary-tree/
 662. Maximum Width of Binary Tree
 Medium
 BFS
