@@ -17,7 +17,6 @@ public:
         vector<int> frequency(26, 0);
         vector<int> frequency1(26, 0);
         vector<int> frequency2(26, 0);
-        char d1, d2;
         for (int i = 0; i < l; i++)
         {
             frequency1[s[i] - 'a']++;
@@ -29,8 +28,6 @@ public:
             else
             {
                 diff++;
-                d1 = s[i];
-                d2 = goal[i];
             }
         }
         for (int i = 0; i < 25; i++)
@@ -40,7 +37,7 @@ public:
                 return false;
             }
         }
-        if (diff > 2 || diff == 1)
+        if (diff > 2)
         {
             return false;
         }
