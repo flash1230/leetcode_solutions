@@ -58,9 +58,6 @@ public:
             q.pop();
             int i = t.position.first;
             int j = t.position.second;
-            // visited[i][j] = true;
-            cout<<i<<j<<endl;
-            // cout << t.keys;
             for (int a = 0; a < 4; a++)
             {
                 int ii, jj;

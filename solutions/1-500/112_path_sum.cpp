@@ -1,30 +1,38 @@
 /* https://leetcode.com/problems/path-sum/
 112. Path Sum
 Easy
+Tree DFS
 */
-class Solution {
+class Solution
+{
 public:
-    bool hasPathSum(TreeNode* root, int targetSum) {
-        if(!root) {
+    bool hasPathSum(TreeNode *root, int targetSum)
+    {
+        if (!root)
             return false;
-        }
-        queue<TreeNode*> q;
+        queue<TreeNode *> q;
         q.push(root);
-        while(!q.empty()) {
-            if(!q.front()->left && !q.front()->right) {
-                if(q.front()->val == targetSum) return true;
-                else {
+        while (!q.empty())
+        {
+            if (!q.front()->left && !q.front()->right)
+            {
+                if (q.front()->val == targetSum)
+                    return true;
+                else
+                {
                     q.pop();
                     continue;
                 }
             }
-            TreeNode* temp = q.front();
-            if(temp->right) {
-                temp->right->val +=temp->val;
+            TreeNode *temp = q.front();
+            if (temp->right)
+            {
+                temp->right->val += temp->val;
                 q.push(temp->right);
             }
-            if(temp->left) {
-                temp->left->val +=temp->val;
+            if (temp->left)
+            {
+                temp->left->val += temp->val;
                 q.push(temp->left);
             }
             q.pop();

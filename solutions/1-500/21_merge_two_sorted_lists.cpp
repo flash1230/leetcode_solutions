@@ -3,43 +3,46 @@
 Easy
 Linked List
 */
-class Solution {
+class Solution
+{
 public:
-    ListNode* mergeTwoLists(ListNode* list1, ListNode* list2) {
-        if(list1 == NULL){
+    ListNode *mergeTwoLists(ListNode *list1, ListNode *list2)
+    {
+        if (list1 == NULL)
             return list2;
-        }
-        if(list2 == NULL){
+        if (list2 == NULL)
             return list1;
-        }
-        ListNode* start;
-        if(list1->val <=list2->val){
+        ListNode *start;
+        if (list1->val <= list2->val)
+        {
             start = list1;
             list1 = list1->next;
         }
-        else {
+        else
+        {
             start = list2;
-            list2=list2->next;
+            list2 = list2->next;
         }
-        ListNode* prev = start;
-        while(list1 && list2){
-            if(list1->val <=list2->val){
+        ListNode *prev = start;
+        while (list1 && list2)
+        {
+            if (list1->val <= list2->val)
+            {
                 prev->next = list1;
                 prev = prev->next;
                 list1 = list1->next;
             }
-            else {
+            else
+            {
                 prev->next = list2;
                 prev = prev->next;
                 list2 = list2->next;
             }
         }
-        if(list1!= NULL){
+        if (list1 != NULL)
             prev->next = list1;
-        }
-        if(list2!=NULL){
+        if (list2 != NULL)
             prev->next = list2;
-        }
         return start;
     }
 };

@@ -27,8 +27,6 @@ public:
             }  
             for(int j=0;j<graph[i].size();j++){
                 if(color[graph[i][j]] == color[i]) {
-                    cout<<color<<endl;
-                    cout<<i<<" "<<j<<endl;
                     return false;
                 }
                 if(color[graph[i][j]] == 'N'){

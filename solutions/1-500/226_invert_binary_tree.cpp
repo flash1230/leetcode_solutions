@@ -11,7 +11,6 @@ public:
         st.push(root);
         while(!st.empty() && st.top()!= NULL) {
             TreeNode *temp = st.top();
-            cout<<st.top()->val<<endl;
             if(temp->left && temp->right){
                 swap(st.top()->left, st.top()->right);
             } 

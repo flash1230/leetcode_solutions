@@ -14,7 +14,6 @@ public:
         double sum = 1.0, ans = 0.0;
         for(int i = 1;i<=n;i++) {
             dp[i] = sum/maxPts;
-            cout<<dp[i]<<endl;
             if(i<k){
                 sum+=dp[i];
             }

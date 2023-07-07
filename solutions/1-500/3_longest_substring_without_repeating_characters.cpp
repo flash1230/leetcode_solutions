@@ -10,9 +10,7 @@ public:
     {
         int l = s.length();
         if (l < 2)
-        {
             return l;
-        }
         int start = 0;
         int end = 1;
         int ans = 1;
