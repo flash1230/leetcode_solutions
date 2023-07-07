@@ -10,9 +10,7 @@ public:
         if (m == 0)
         {
             while (n--)
-            {
                 nums1[n] = nums2[n];
-            }
             return;
         }
         int i = m - 1, j = n - 1;
@@ -30,9 +28,7 @@ public:
                 return;
             }
             if (j == -1)
-            {
                 return;
-            }
             if (nums1[i] >= nums2[j])
             {
                 nums1[max] = nums1[i];

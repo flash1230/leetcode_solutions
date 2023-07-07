@@ -3,25 +3,22 @@
 Easy
 Tree
 */
-class Solution {
+class Solution
+{
 public:
-    int maxDepth(TreeNode* root) {
-        if(root == NULL) {
+    int maxDepth(TreeNode *root)
+    {
+        if (root == NULL)
             return 0;
-        }
-        int left =0, right = 0;
-        if(root->right != NULL) {
+        int left = 0, right = 0;
+        if (root->right != NULL)
             right = 1 + maxDepth(root->right);
-        }
-        else{
+        else
             right++;
-        }
-        if(root->left != NULL) {
+        if (root->left != NULL)
             left = 1 + maxDepth(root->left);
-        }
-        else{
+        else
             left++;
-        }
         return max(left, right);
     }
 };
