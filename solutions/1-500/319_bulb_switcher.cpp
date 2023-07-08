@@ -1,16 +1,16 @@
 /* https://leetcode.com/problems/bulb-switcher
 319. Bulb Switcher
 Medium
-Maths
+Math
 */
-class Solution {
+class Solution
+{
 public:
-    int bulbSwitch(int n) {
-        if(n<2) {
+    int bulbSwitch(int n)
+    {
+        if (n < 2)
             return n;
-        }
-        else {
+        else
             return sqrt(n);
-        }
     }
 };

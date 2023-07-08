@@ -9,9 +9,7 @@ public:
     int widthOfBinaryTree(TreeNode *root)
     {
         if (!(root->left || root->right))
-        {
             return 1;
-        }
         unsigned long long cur = 0, res = 0;
         int el = 1;
         unsigned long long left = 0, right = 0;
@@ -21,13 +19,9 @@ public:
         {
             auto p = q.front();
             if (p.first->left)
-            {
                 q.push({p.first->left, ((2 * p.second))});
-            }
             if (p.first->right)
-            {
                 q.push({p.first->right, ((2 * p.second) + 1)});
-            }
             q.pop();
             el--;
             if (el == 0)

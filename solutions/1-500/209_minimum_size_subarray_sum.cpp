@@ -15,20 +15,14 @@ public:
         {
             sum += nums[end];
             if (sum >= target)
-            {
                 break;
-            }
             end++;
         }
         if (sum < target)
-        {
             return 0;
-        }
         int ans = end - start + 1;
         if (ans == 1)
-        {
             return ans;
-        }
         sum -= nums[start];
         start++;
         while (end < nums.size())
@@ -39,9 +33,7 @@ public:
                 sum -= nums[start];
                 start++;
                 if (ans == 1)
-                {
                     return ans;
-                }
             }
             else
             {

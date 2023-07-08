@@ -1,23 +1,24 @@
 /* https://leetcode.com/problems/largest-rectangle-in-histogram/
 235. Lowest Common Ancestor of a Binary Search Tree
 Medium
+BST
 */
-class Solution {
+class Solution
+{
 public:
-    TreeNode* lowestCommonAncestor(TreeNode* root, TreeNode* p, TreeNode* q) {
+    TreeNode *lowestCommonAncestor(TreeNode *root, TreeNode *p, TreeNode *q)
+    {
         int small = min(p->val, q->val);
-        int big = max(p->val, q-> val);
-        while(true) {
+        int big = max(p->val, q->val);
+        while (true)
+        {
             int a = root->val;
-            if(a == small || a == big || (big > a && a > small)) {
+            if (a == small || a == big || (big > a && a > small))
                 return root;
-            }
-            else if(a < small) {
+            else if (a < small)
                 root = root->right;
-            }
-            else {
+            else
                 root = root->left;
-            }
         }
         return root;
     }
