@@ -3,20 +3,21 @@
 Hard
 Binary Search
 */
-class Solution {
+class Solution
+{
 public:
-    vector<int> longestObstacleCourseAtEachPosition(vector<int>& obstacles) {
+    vector<int> longestObstacleCourseAtEachPosition(vector<int> &obstacles)
+    {
         vector<int> ans(obstacles.size(), 1);
         vector<int> till;
-        for(int i = 0;i<obstacles.size(); i++) {
+        for (int i = 0; i < obstacles.size(); i++)
+        {
             int index = upper_bound(till.begin(), till.end(), obstacles[i]) - till.begin();
-            if (index == till.size()) {
+            if (index == till.size())
                 till.push_back(obstacles[i]);
-            }
-            else {
+            else
                 till[index] = obstacles[i];
-            }
-            ans[i] = index+1;
+            ans[i] = index + 1;
         }
         return ans;
     }

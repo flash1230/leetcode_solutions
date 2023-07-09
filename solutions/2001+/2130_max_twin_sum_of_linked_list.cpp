@@ -3,19 +3,23 @@
 Medium
 Linked List
 */
-class Solution {
+class Solution
+{
 public:
-    int pairSum(ListNode* head) {
+    int pairSum(ListNode *head)
+    {
         stack<int> st;
         int n = 0;
         ListNode *temp = head;
-        while(temp!= NULL) {
+        while (temp != NULL)
+        {
             n++;
             st.push(temp->val);
             temp = temp->next;
         }
         int ans = 0;
-        for(int i = 0;i<n/2; i++) {
+        for (int i = 0; i < n / 2; i++)
+        {
             ans = max(ans, st.top() + head->val);
             st.pop();
             head = head->next;
