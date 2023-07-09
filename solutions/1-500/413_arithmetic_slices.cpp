@@ -10,9 +10,7 @@ public:
     {
         int n = nums.size();
         if (n < 3)
-        {
             return 0;
-        }
         int cur = nums[1] - nums[0];
         int ans = 0;
         int arth_len = 0;

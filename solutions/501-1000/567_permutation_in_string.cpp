@@ -10,9 +10,7 @@ public:
     {
         unordered_map<char, int> orig;
         for (auto s : s1)
-        {
             orig[s]++;
-        }
         unordered_map<char, int> checker;
         int i = 0, j = s1.length() - 1;
         while (j < s2.length())
@@ -37,9 +35,7 @@ public:
                             start++;
                         }
                         else
-                        {
                             break;
-                        }
                     }
                     checker[s2[i]]++;
                     i++;
@@ -50,9 +46,7 @@ public:
                     checker[s2[i]]++;
                     i++;
                     if (i > j)
-                    {
                         return true;
-                    }
                 }
             }
         }

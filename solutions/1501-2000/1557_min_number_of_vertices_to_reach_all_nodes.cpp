@@ -10,9 +10,7 @@ public:
     {
         vector<bool> isReachable(n, 0);
         for (auto i : edges)
-        {
             isReachable[i[1]] = 1;
-        }
         vector<int> ans;
         for (int i = 0; i < n; i++)
         {

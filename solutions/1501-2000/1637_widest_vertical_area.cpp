@@ -3,18 +3,20 @@
 Medium
 Priority Queue
 */
-class Solution {
+class Solution
+{
 public:
-    int maxWidthOfVerticalArea(vector<vector<int>>& points) {
+    int maxWidthOfVerticalArea(vector<vector<int>> &points)
+    {
         priority_queue<int> pq;
-        for(int i =0;i<points.size();i++) {
+        for (int i = 0; i < points.size(); i++)
             pq.push(points[i][0]);
-        }
         int ans = 0;
-        while(!pq.empty()) {
+        while (!pq.empty())
+        {
             int temp = pq.top();
             pq.pop();
-            ans = max(ans,temp-pq.top());
+            ans = max(ans, temp - pq.top());
         }
         return ans;
     }

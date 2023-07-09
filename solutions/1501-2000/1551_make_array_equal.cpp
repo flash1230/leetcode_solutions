@@ -10,9 +10,7 @@ public:
     {
         int ans = n * n / 2;
         for (int i = 0; i < (n / 2); i++)
-        {
             ans -= 2 * i + 1;
-        }
         return ans;
     }
 };

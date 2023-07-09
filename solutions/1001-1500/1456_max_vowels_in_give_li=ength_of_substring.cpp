@@ -3,35 +3,38 @@
 Medium
 Sliding Window
 */
-class Solution {
+class Solution
+{
 public:
-    int maxVowels(string s, int k) {
+    int maxVowels(string s, int k)
+    {
         int count = 0;
         int j;
-        for(j = 0;j<k;j++) {
-            if(isVowel(s[j])){
+        for (j = 0; j < k; j++)
+        {
+            if (isVowel(s[j]))
                 count++;
-            }
         }
-        if(count == k){
+        if (count == k)
             return k;
-        }
         int ans = count;
-        for(int i = 0,j=k-1;j<s.length()-1;i++,j++){
-            if(isVowel(s[i]))
+        for (int i = 0, j = k - 1; j < s.length() - 1; i++, j++)
+        {
+            if (isVowel(s[i]))
                 count--;
-            if(isVowel(s[j+1]))
+            if (isVowel(s[j + 1]))
                 count++;
-            if(count == k)
+            if (count == k)
                 return k;
-            ans=max(ans, count);
+            ans = max(ans, count);
         }
         return ans;
     }
-    bool isVowel(char c){
-        if(c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u'){
+    
+    bool isVowel(char c)
+    {
+        if (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u')
             return true;
-        }
         return false;
     }
 };

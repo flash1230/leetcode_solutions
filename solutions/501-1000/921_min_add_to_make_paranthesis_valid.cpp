@@ -14,13 +14,9 @@ public:
         while (i < t)
         {
             if (s[i] == ')' && !st.empty() && st.top() == '(')
-            {
                 st.pop();
-            }
             else
-            {
                 st.push(s[i]);
-            }
             i++;
         }
         return st.size();

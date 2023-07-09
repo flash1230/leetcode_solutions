@@ -1,48 +1,56 @@
 /* https://leetcode.com/problems/implement-queue-using-stacks/
 232. Implement Queue using Stacks
-easy
+Easy
 Stack
 */
-class MyQueue {
+class MyQueue
+{
 public:
     stack<int> st1, st2;
-    MyQueue() {
-        // stack<int> st1;
-        // stack<int> st2;
+    MyQueue()
+    {
     }
-    
-    void push(int x) {
+
+    void push(int x)
+    {
         st1.push(x);
     }
-    
-    int pop() {
-        while(!st1.empty()) {
+
+    int pop()
+    {
+        while (!st1.empty())
+        {
             st2.push(st1.top());
             st1.pop();
         }
         int temp = st2.top();
         st2.pop();
-        while(!st2.empty()) {
+        while (!st2.empty())
+        {
             st1.push(st2.top());
             st2.pop();
         }
         return temp;
     }
-    
-    int peek() {
-        while(!st1.empty()) {
+
+    int peek()
+    {
+        while (!st1.empty())
+        {
             st2.push(st1.top());
             st1.pop();
         }
         int temp = st2.top();
-        while(!st2.empty()) {
+        while (!st2.empty())
+        {
             st1.push(st2.top());
             st2.pop();
         }
         return temp;
     }
-    
-    bool empty() {
+
+    bool empty()
+    {
         return st1.empty();
     }
 };

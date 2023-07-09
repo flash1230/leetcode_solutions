@@ -2,22 +2,22 @@
 700. Search in a Binary Search Tree
 Easy
 */
-class Solution {
+class Solution
+{
 public:
-    TreeNode* searchBST(TreeNode* root, int val) {
-        TreeNode* search = root;
-        while(search) {
-            if(search->val == val) {
+    TreeNode *searchBST(TreeNode *root, int val)
+    {
+        TreeNode *search = root;
+        while (search)
+        {
+            if (search->val == val)
                 return search;
-            }
-            else if(search->val > val) {
+            else if (search->val > val)
                 search = search->left;
-            }
-            else {
+            else
                 search = search->right;
-            }
         }
-        TreeNode* node;
+        TreeNode *node;
         return node;
     }
 };

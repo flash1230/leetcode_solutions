@@ -2,15 +2,18 @@
 1822. Sign of the Product of an Array
 Easy
 */
-class Solution {
+class Solution
+{
 public:
-    int arraySign(vector<int>& nums) {
+    int arraySign(vector<int> &nums)
+    {
         bool neg = false;
-        for(int i: nums) {
-            if(i<0) {
-                neg =!neg;
-            }
-            if(i == 0) return 0;
+        for (int i : nums)
+        {
+            if (i < 0)
+                neg = !neg;
+            if (i == 0)
+                return 0;
         }
         return neg ? -1 : 1;
     }

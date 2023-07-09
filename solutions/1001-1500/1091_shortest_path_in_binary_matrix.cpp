@@ -18,13 +18,9 @@ public:
         int n = grid.size();
         N = n;
         if (grid[0][0] || grid[n - 1][n - 1])
-        {
             return -1;
-        }
         if (n == 1)
-        {
             return 1;
-        }
         queue<pair<int, int>> bfs;
         bfs.push(make_pair(0, 0));
         int in_this_level = 1;
@@ -36,9 +32,7 @@ public:
             int y = bfs.front().second;
             bfs.pop();
             if (x == n - 1 && y == n - 1)
-            {
                 return cur_level;
-            }
             for (int i = x - 1; i <= x + 1; i++)
             {
                 for (int j = y - 1; j <= y + 1; j++)

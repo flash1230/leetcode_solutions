@@ -3,13 +3,16 @@
 Easy
 Array
 */
-class Solution {
+class Solution
+{
 public:
-    int countGoodRectangles(vector<vector<int>>& rectangles) {
-        map<int,int> min_lengths;
-        for(int i =0; i<rectangles.size();i++) {
+    int countGoodRectangles(vector<vector<int>> &rectangles)
+    {
+        map<int, int> min_lengths;
+        for (int i = 0; i < rectangles.size(); i++)
+        {
             int temp = min(rectangles[i][0], rectangles[i][1]);
-            if(min_lengths.find(temp) == min_lengths.end())
+            if (min_lengths.find(temp) == min_lengths.end())
                 min_lengths[temp] = 1;
             else
                 min_lengths[temp] += 1;

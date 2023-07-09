@@ -1,7 +1,7 @@
 /* https://leetcode.com/problems/verifying-an-alien-dictionary/
 953. Verifying an Alien Dictionary
 Easy
-Hash Map
+Map
 */
 class Solution
 {
@@ -10,9 +10,7 @@ public:
     {
         unordered_map<char, int> ord;
         for (int i = 0; i < 26; i++)
-        {
             ord[order[i]] = i;
-        }
         for (int i = 1; i < words.size(); i++)
         {
             int j = 0;

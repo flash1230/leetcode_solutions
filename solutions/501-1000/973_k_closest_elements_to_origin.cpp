@@ -62,9 +62,7 @@ public:
         while (!heap.empty())
         {
             for (auto i : mp[heap.top()])
-            {
                 ans.push_back(points[i]);
-            }
             mp.erase(heap.top());
             heap.pop();
         }

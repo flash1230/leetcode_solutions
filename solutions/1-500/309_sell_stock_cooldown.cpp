@@ -3,22 +3,24 @@
 Medium
 DP
 */
-class Solution {
+class Solution
+{
 public:
-    int maxProfit(vector<int>& prices) {
-       int n = prices.size();
-        if(n==1) {
+    int maxProfit(vector<int> &prices)
+    {
+        int n = prices.size();
+        if (n == 1)
             return 0;
-        }
         int buy = -prices[0];
         int sell = 0;
         int cool = 0;
         bool isCool = false;
-        for(int i =0;i<n;i++) {
+        for (int i = 0; i < n; i++)
+        {
             int tbuy = buy;
             int tsell = sell;
-            buy = max(tbuy, cool-prices[i]);
-            sell = max(tsell, tbuy+prices[i]);
+            buy = max(tbuy, cool - prices[i]);
+            sell = max(tsell, tbuy + prices[i]);
             cool = max(cool, tsell);
         }
         return sell;
