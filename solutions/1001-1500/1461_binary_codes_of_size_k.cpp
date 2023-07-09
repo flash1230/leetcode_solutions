@@ -13,7 +13,6 @@ public:
         unordered_set<string> my_set;
         for (int i = 0; i <= s.size() - k; i++)
             my_set.insert(s.substr(i, k));
-
         return my_set.size() == pow(2, k);
     }
 };

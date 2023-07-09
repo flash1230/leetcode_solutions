@@ -16,16 +16,12 @@ public:
         for (auto i : s1)
         {
             if (!s2.count(i))
-            {
                 nums1.push_back(i);
-            }
         }
         for (auto i : s2)
         {
             if (!s1.count(i))
-            {
                 nums2.push_back(i);
-            }
         }
         ans.push_back(nums1);
         ans.push_back(nums2);

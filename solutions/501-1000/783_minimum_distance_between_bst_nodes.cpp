@@ -3,15 +3,20 @@
 Easy
 Tree
 */
-class Solution {
+class Solution
+{
 public:
     int ans = INT_MAX;
     int val = -1;
-    int minDiffInBST(TreeNode* root) {
-        if(root->left)  minDiffInBST(root->left);
-        if(val>=0)  ans = min(ans, root->val - val);
+    int minDiffInBST(TreeNode *root)
+    {
+        if (root->left)
+            minDiffInBST(root->left);
+        if (val >= 0)
+            ans = min(ans, root->val - val);
         val = root->val;
-        if(root->right) minDiffInBST(root->right);
+        if (root->right)
+            minDiffInBST(root->right);
         return ans;
     }
 };

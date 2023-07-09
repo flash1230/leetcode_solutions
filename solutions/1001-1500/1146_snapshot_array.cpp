@@ -3,28 +3,33 @@
 Medium
 Binary Search Map
 */
-class SnapshotArray {
+class SnapshotArray
+{
 public:
-    vector<map<int,int>> mMap;
-    int s=0;
-    SnapshotArray(int length) {
+    vector<map<int, int>> mMap;
+    int s = 0;
+    SnapshotArray(int length)
+    {
         mMap.resize(length);
-        for(int i =0;i<length;i++){
+        for (int i = 0; i < length; i++)
             mMap[i][0] = 0;
-        }
     }
-    
-    void set(int index, int val) {
+
+    void set(int index, int val)
+    {
         mMap[index][s] = val;
     }
-    
-    int snap() {
+
+    int snap()
+    {
         s++;
-        return s-1;
+        return s - 1;
     }
-    
-    int get(int index, int snap_id) {
-        if(!mMap[index].count(snap_id)){
+
+    int get(int index, int snap_id)
+    {
+        if (!mMap[index].count(snap_id))
+        {
             auto i = --mMap[index].lower_bound(snap_id);
             return i->second;
         }

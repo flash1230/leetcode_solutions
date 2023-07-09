@@ -10,9 +10,7 @@ public:
     {
         int l = s.length();
         if (l < 2)
-        {
             return 1;
-        }
         int i = 0, j = 0;
         int cur = 0, ans = 0;
         unordered_map<char, int> hash;

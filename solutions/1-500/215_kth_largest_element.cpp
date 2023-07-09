@@ -3,15 +3,20 @@
 Medium
 Priority Queue
 */
-class Solution {
+class Solution
+{
 public:
-    int findKthLargest(vector<int>& nums, int k) {
+    int findKthLargest(vector<int> &nums, int k)
+    {
         priority_queue<int, vector<int>, greater<int>> minheap;
-        for(int i:nums) {
-            if(minheap.size()<k)
+        for (int i : nums)
+        {
+            if (minheap.size() < k)
                 minheap.push(i);
-            else {
-                if(minheap.top()<i){
+            else
+            {
+                if (minheap.top() < i)
+                {
                     minheap.pop();
                     minheap.push(i);
                 }
