@@ -14,15 +14,11 @@ public:
         vector<int> pows(right + 1);
         pows[0] = 1;
         for (int i = 1; i <= right; i++)
-        {
             pows[i] = pows[i - 1] * 2 % mod;
-        }
         while (left <= right)
         {
             if (nums[left] + nums[right] > target)
-            {
                 right--;
-            }
             else
             {
                 res = (res + pows[right - left]) % mod;

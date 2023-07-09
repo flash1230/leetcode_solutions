@@ -15,9 +15,7 @@ public:
         int cur = 0;
         int ans = 0;
         while (nums[start] == 0)
-        {
             start++;
-        }
         for (end = start + 1; end < n; end++)
         {
             if (!nums[end])
@@ -41,14 +39,10 @@ public:
         {
             cur = n - start - 1;
             if (mid < start)
-            {
                 cur = n - start;
-            }
         }
         if (!zero && start == 0)
-        {
             return n - 1;
-        }
         return max(cur, ans);
     }
 };
