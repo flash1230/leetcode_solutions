@@ -11,8 +11,7 @@ public:
         int highest = nums[0];
         for (int i = 1; i < nums.size(); i++)
         {
-            int temp = current + nums[i];
-            current = max(temp, nums[i]);
+            current = max(current + nums[i], nums[i]);
             if (current >= highest)
                 highest = current;
         }
