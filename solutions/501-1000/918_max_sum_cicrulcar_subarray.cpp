@@ -1,8 +1,7 @@
 /* https://leetcode.com/problems/maximum-sum-circular-subarray/
 918. Maximum Sum Circular Subarray
 Medium
-DP
-Divide and Conquer
+DP Divide and Conquer
 */
 class Solution
 {
