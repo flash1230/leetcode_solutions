@@ -1,7 +1,7 @@
 /* https://leetcode.com/problems/verifying-an-alien-dictionary/
 953. Verifying an Alien Dictionary
 Easy
-Hash Map
+Map
 */
 class Solution
 {
