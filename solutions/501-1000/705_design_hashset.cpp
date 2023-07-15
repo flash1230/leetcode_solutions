@@ -7,6 +7,7 @@ class MyHashSet
 {
 public:
     bool mp[1000002] = {false};
+    
     MyHashSet()
     {
     }

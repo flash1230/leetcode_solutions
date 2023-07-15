@@ -8,6 +8,7 @@ class Solution
 public:
     int ans = INT_MAX;
     int val = -1;
+    
     int minDiffInBST(TreeNode *root)
     {
         if (root->left)

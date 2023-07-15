@@ -7,6 +7,7 @@ class MyQueue
 {
 public:
     stack<int> st1, st2;
+    
     MyQueue()
     {
     }

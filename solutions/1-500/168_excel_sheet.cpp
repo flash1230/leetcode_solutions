@@ -10,7 +10,6 @@ public:
     {
         string res;
         char tmp;
-
         while (columnNumber)
         {
             columnNumber -= 1;
@@ -18,7 +17,6 @@ public:
             res = tmp + res;
             columnNumber /= 26;
         }
-
         return res;
     }
 };

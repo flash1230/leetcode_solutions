@@ -7,6 +7,7 @@ class Solution
 {
 public:
     vector<TreeNode *> parents;
+    
     vector<int> solve(TreeNode *root, int k)
     {
         vector<int> ans;

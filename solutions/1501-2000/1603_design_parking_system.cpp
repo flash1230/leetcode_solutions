@@ -7,6 +7,7 @@ class ParkingSystem
 {
 public:
     int b, s, m;
+    
     ParkingSystem(int big, int medium, int small)
     {
         b = big;

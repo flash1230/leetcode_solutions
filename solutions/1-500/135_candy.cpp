@@ -11,9 +11,7 @@ public:
         int n = ratings.size();
         int ans = n;
         if (n == 1)
-        {
             return 1;
-        }
         vector<int> v(n, 1);
         for (int i = 1; i < n; i++)
         {

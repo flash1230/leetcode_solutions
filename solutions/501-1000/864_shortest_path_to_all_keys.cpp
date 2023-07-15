@@ -19,13 +19,9 @@ public:
     bool in_range(int i, int j)
     {
         if (i > rows - 1 || i < 0)
-        {
             return false;
-        }
         if (j > cols - 1 || j < 0)
-        {
             return false;
-        }
         return true;
     }
 
@@ -41,9 +37,7 @@ public:
             for (int j = 0; j < cols; j++)
             {
                 if (islower(grid[i][j]))
-                {
                     required++;
-                }
                 if (grid[i][j] == '@')
                 {
                     q.push(es{{i, j}, "", 0, 0});
@@ -86,22 +80,18 @@ public:
                     if (islower(grid[ii][jj]))
                     {
                         if (t.collected + 1 == required)
-                        {
                             return t.steps + 1;
-                        }
                         prevVisited = visited;
-                        for(int k=0;k<rows;k++){
-                            for(int g=0;g<cols;g++){
+                        for (int k = 0; k < rows; k++)
+                        {
+                            for (int g = 0; g < cols; g++)
                                 visited[i][j] = false;
-                            }
                         }
                         visited[ii][jj] = true;
                         q.push(es{{ii, jj}, t.keys + grid[ii][jj], t.steps + 1, t.collected + 1});
                     }
                     else if (grid[ii][jj] == '.')
-                    {
                         q.push(es{{ii, jj}, t.keys, t.steps + 1, t.collected});
-                    }
                     else if (isupper(grid[ii][jj]))
                     {
                         char c = tolower(grid[ii][jj]);
@@ -112,9 +102,8 @@ public:
                             {
                                 for (int g = 0; g < cols; g++)
                                 {
-                                    if(prevVisited[i][j]){
+                                    if (prevVisited[i][j])
                                         visited[i][j] = true;
-                                    }
                                 }
                             }
                         }
