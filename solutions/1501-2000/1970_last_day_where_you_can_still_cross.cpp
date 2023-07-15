@@ -7,6 +7,7 @@ class Solution
 {
 public:
     int rows, cols;
+    
     bool in_range(int i, int j)
     {
         if (i > rows - 1 || i < 0)

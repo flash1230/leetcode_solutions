@@ -13,17 +13,14 @@ public:
         for (int x : adj[src])
         {
             if (vis[x] == false && dfs(adj, x, vis, recst))
-            {
                 return true;
-            }
             else if (recst[x] == true)
-            {
                 return true;
-            }
         }
         recst[src] = false;
         return false;
     }
+    
     vector<int> eventualSafeNodes(vector<vector<int>> &graph)
     {
         int n = graph.size();

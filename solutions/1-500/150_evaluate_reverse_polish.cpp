@@ -26,9 +26,7 @@ public:
                     s.push(l * r);
             }
             else
-            {
                 s.push(stoi(tokens[i]));
-            }
         }
         return s.top();
     }

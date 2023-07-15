@@ -9,14 +9,10 @@ public:
     string minWindow(string s, string t)
     {
         if (s.size() < t.size())
-        {
             return "";
-        }
         unordered_map<char, int> map;
         for (int i = 0; i < t.size(); i++)
-        {
             map[t[i]]++;
-        }
         int count = 0, start = 0, min_length = INT_MAX, min_start = 0;
         for (int end = 0; end < s.size(); end++)
         {

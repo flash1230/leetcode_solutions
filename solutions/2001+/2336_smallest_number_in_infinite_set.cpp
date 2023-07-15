@@ -8,6 +8,7 @@ class SmallestInfiniteSet
 public:
     int cur;
     set<int> s;
+    
     SmallestInfiniteSet()
     {
         cur = 1;

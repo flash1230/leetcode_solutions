@@ -7,6 +7,7 @@ class MinStack
 {
 public:
     stack<pair<int, int>> st;
+    
     MinStack()
     {
     }

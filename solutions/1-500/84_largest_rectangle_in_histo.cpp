@@ -24,7 +24,6 @@ public:
             }
             stk.push({start, heights[i]});
         }
-
         while (!stk.empty())
         {
             int width = heights.size() - stk.top().first;
