@@ -1,20 +1,29 @@
+/* https://leetcode.com/problems/lru-cache
+146. LRU Cache
+Medium
+Linked List Map
+*/
 class LRUCache
 {
 public:
     int ll = 0;
     int k;
-    unordered_map<int, int> cache;
     struct Node
     {
+        int key;
         int val;
+        struct Node *prev;
         struct Node *next;
-        Node(int value)
+        Node(int k, int value, Node *p)
         {
+            key = k;
             val = value;
+            prev = p;
             next = NULL;
         }
     };
-    Node *head = new Node(0);
+    unordered_map<int, Node *> cache;
+    Node *head = new Node(0, 0, nullptr);
     Node *iter;
 
     LRUCache(int capacity)
@@ -29,77 +38,84 @@ public:
             return -1;
         else
         {
-            if (iter->val == key)
-                return cache[key];
-            if (head->val == key)
+            if (iter == cache[key])
+                return cache[key]->val;
+            if (head == cache[key])
             {
                 Node *t = head;
                 head = head->next;
+                head->prev = NULL;
                 iter->next = t;
+                t->prev = iter;
                 iter = iter->next;
-                return cache[key];
+                return cache[key]->val;
             }
-            Node *temp = head;
-            while (temp->next->val != key)
-                temp = temp->next;
-            iter->next = temp->next;
-            temp->next = temp->next->next;
-            iter = iter->next;
+            Node *t = cache[key];
+            t->prev->next = t->next;
+            t->next->prev = t->prev;
+            iter->next = t;
+            t->prev = iter;
+            t->next = NULL;
+            iter = t;
         }
-        return cache[key];
+        return cache[key]->val;
     }
 
     void put(int key, int value)
     {
         if (cache.count(key))
         {
-            cache[key] = value;
-            if (iter->val == key)
-            {
+            cache[key]->val = value;
+            if (iter == cache[key])
                 return;
-            }
-            if (head->val == key)
+            if (head == cache[key])
             {
                 Node *t = head;
                 head = head->next;
+                head->prev = NULL;
                 iter->next = t;
-                iter = iter->next;
+                t->prev = iter;
+                t->next = NULL;
+                iter = t;
                 return;
             }
-            Node *temp = head;
-            while (temp->next->val != key)
-                temp = temp->next;
-            iter->next = temp->next;
-            temp->next = temp->next->next;
-            iter = iter->next;
+            Node *temp = cache[key];
+            temp->prev->next = temp->next;
+            temp->next->prev = temp->prev;
+            iter->next = temp;
+            temp->prev = iter;
+            temp->next = NULL;
+            iter = temp;
             return;
         }
         else
         {
             if (ll == 0)
             {
-                head->val = key;
-                cache[key] = value;
+                head->val = value;
+                head->key = key;
+                cache[key] = head;
                 ll++;
                 return;
             }
             if (ll < k)
             {
-                Node *t = new Node(key);
+                Node *t = new Node(key, value, iter);
                 iter->next = t;
-                iter = iter->next;
+                iter = t;
                 ll++;
-                cache[key] = value;
+                cache[key] = t;
                 return;
             }
             else
             {
-                cache.erase(head->val);
-                Node *t = new Node(key);
+                cache.erase(head->key);
+                Node *t = new Node(key, value, iter);
                 iter->next = t;
-                iter = iter->next;
+                iter = t;
                 head = head->next;
-                cache[key] = value;
+                head->prev = nullptr;
+                cache[key] = t;
             }
         }
     }
