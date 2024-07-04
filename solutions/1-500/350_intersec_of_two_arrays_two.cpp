@@ -3,32 +3,53 @@
 Easy
 Map
 */
-class Solution
+class Solution1
 {
 public:
     vector<int> intersect(vector<int> &nums1, vector<int> &nums2)
     {
         vector<int> res;
         int n = nums1.size();
-        int m = nums2.size();
-        unordered_map<int, int> c1, c2;
+        unordered_map<int, int> c1;
         for (int i = 0; i < n; i++)
             c1[nums1[i]]++;
-        for (int i = 0; i < m; i++)
-            c2[nums2[i]]++;
-        auto iter = c1.begin();
-        while (iter != c1.end())
+        for (int i : nums2)
         {
-            if (c2.find(iter->first) != c2.end())
+            if (c1[i] && c1[i] >= 1)
             {
-                int t = min(iter->second, c2[iter->first]);
-                while (t != 0)
-                {
-                    res.push_back(iter->first);
-                    t--;
-                }
+                res.push_back(i);
+                c1[i]--;
             }
-            ++iter;
+        }
+        return res;
+    }
+};
+
+class Solution2
+{
+public:
+    vector<int> intersect(vector<int> &nums1, vector<int> &nums2)
+    {
+        vector<int> res;
+        int a = nums1.size();
+        int b = nums2.size();
+        sort(nums1.begin(), nums1.end());
+        sort(nums2.begin(), nums2.end());
+        int i = 0, j = 0;
+        while (1)
+        {
+            if (i == a || j == b)
+                break;
+            if (nums1[i] == nums2[j])
+            {
+                res.push_back(nums1[i]);
+                i++;
+                j++;
+            }
+            else if (nums1[i] < nums2[j])
+                i++;
+            else
+                j++;
         }
         return res;
     }
