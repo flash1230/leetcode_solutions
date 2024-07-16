@@ -20,7 +20,7 @@ public:
         {
             bool t = hasIt(root->right, target);
             if(t)
-                ans.push_back(root)
+                ans.push_back(root);
             return t;
         }
         if(!root->right)
@@ -30,7 +30,7 @@ public:
                 ans.push_back(root);
             return t;
         }
-        bool t = hasIt(root->left) || hasIt(root->right);
+        bool t = hasIt(root->left, target) || hasIt(root->right, target);
         if(t)
             ans.push_back(root);
         return t;
@@ -38,7 +38,8 @@ public:
 
     vector<TreeNode*> path(TreeNode* root, TreeNode* p)
     {
-        hasIt(TreeNode* root, TreeNode* p);
+        hasIt(root, p);
+        reverse(ans.begin(), ans.end());
         return ans;
     }
 
@@ -50,7 +51,7 @@ public:
         ans.clear();
         vector<TreeNode*> path2 = path(root, q);
         int i = 0;
-        int n = min(path1.size(), path2.size())
+        int n = min(path1.size(), path2.size());
         while(i < n)
         {
             if(path1[i] == path2[i])
