@@ -1,4 +1,4 @@
-/* https://leetcode.com/problems/largest-rectangle-in-histogram/
+/* https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-search-tree/
 235. Lowest Common Ancestor of a Binary Search Tree
 Medium
 BST
@@ -12,10 +12,9 @@ public:
         int big = max(p->val, q->val);
         while (true)
         {
-            int a = root->val;
-            if (a == small || a == big || (big > a && a > small))
+            if (root->val == small || root->val == big || (big > root->val && root->val > small))
                 return root;
-            else if (a < small)
+            else if (root->val < small)
                 root = root->right;
             else
                 root = root->left;
