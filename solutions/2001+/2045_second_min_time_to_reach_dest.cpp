@@ -3,90 +3,65 @@
 Hard
 BFS
 */
-class Solution {
+class Solution
+{
 public:
-    int secondMinimum(int n, vector<vector<int>>& edges, int time, int change) {
-        //find least number of edges between 1 and n
-        //find second least with max one more turn
-        //if found return second one, else add two turns to first, ez
-        vector<int> visited(n);
+    int secondMinimum(int n, vector<vector<int>> &edges, int time, int change)
+    {
         vector<vector<int>> graph(n);
-        for(auto i: edges)
+        for (auto i : edges)
         {
-            graph[i[0]-1].push_back(i[1]-1);
-            graph[i[1]-1].push_back(i[0]-1);
+            graph[i[0] - 1].push_back(i[1] - 1);
+            graph[i[1] - 1].push_back(i[0] - 1);
         }
+        vector<pair<int, int>> visited(n, {0, 0});
         queue<int> bfs;
         bfs.push(0);
-        int curr = 1;
-        // visited[0]=true;
-        int next=0;
-        int level = 0;
-        int k=1;
-        bool found1 = false, found2 = false;
-        while(k>0 &&!bfs.empty())
+        visited[0] = {1, 0};
+        int curr = 1, next = 0, level = 0, save = 0;
+        while (1)
         {
             int a = bfs.front();
             bfs.pop();
-            visited[a] = true;
-            for(int i: graph[a])
+            for (int i : graph[a])
             {
-                if(i == n-1)
+                if (visited[i].second < level + 1)
                 {
-                    if(found1)
+                    if (i == n - 1)
                     {
-                        found2 = true;
-                        level++;
-                        break;
+                        if (visited[n - 1].first == 1)
+                        {
+                            save = level + 1;
+                            goto out;
+                        }
                     }
-                    else
+                    if (visited[i].first < 2)
                     {
-                        found1 = true;
-                        k=2;
+                        bfs.push(i);
+                        visited[i].first++;
+                        visited[i].second = level + 1;
+                        next++;
                     }
-                }
-                if(!visited[i])
-                {
-                    bfs.push(i);
-                    visited[i]=true;
-                    next++;
                 }
             }
             curr--;
-            if(curr == 0)
+            if (curr == 0)
             {
-                if(found1)
-                    k--;
-                    if(k==0)
-                    {
-                        break;
-                    }
                 curr = next;
                 next = 0;
                 level++;
             }
-            if(found2)
-                break;
         }
-        if(!found2)
-            level+=2;
-        cout<<level;
-        cout<<found2;
-            int ans = time;
-            for(int i =1; i<level;i++)
-            {
-                int a = ans/change;
-                int b = ans%change;
-                if(a%2)
-                {
-                    // ans+=time;
-                    ans+=(change-b);
-
-                }
-                ans+=time;
-                // else
-                    // ans+=time;
-            }
+    out:
+        int ans = time;
+        for (int i = 1; i < save; i++)
+        {
+            int a = ans / change;
+            int b = ans % change;
+            if (a % 2)
+                ans += (change - b);
+            ans += time;
+        }
         return ans;
     }
 };
