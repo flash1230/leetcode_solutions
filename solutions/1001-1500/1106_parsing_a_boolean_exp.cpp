@@ -53,7 +53,6 @@ public:
                 mahstack.pop();
                 op = mahstack.top();
                 mahstack.pop();
-
                 mahstack.push(solve(exp, op));
             }
             i++;
