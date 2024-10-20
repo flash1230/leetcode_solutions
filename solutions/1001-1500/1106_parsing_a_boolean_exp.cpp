@@ -39,6 +39,8 @@ public:
         {
             if (expression[i] != ')')
                 mahstack.push(expression[i]);
+            else if(expression[i]==',')
+            {}
             else
             {
                 string exp;
@@ -47,8 +49,6 @@ public:
                 {
                     exp += mahstack.top();
                     mahstack.pop();
-                    if (mahstack.top() == ',')
-                        mahstack.pop();
                 }
                 mahstack.pop();
                 op = mahstack.top();
