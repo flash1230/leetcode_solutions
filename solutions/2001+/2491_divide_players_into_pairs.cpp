@@ -40,7 +40,6 @@ public:
         int check = l + r;
         int i = 0;
         long long ans = 0;
-        cout << check;
         while (!freq.empty())
         {
             if (!freq.contains(skill[i]))

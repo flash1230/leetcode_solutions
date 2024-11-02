@@ -51,7 +51,6 @@ public:
         {
             int i = dfs.top().first;
             int j = dfs.top().second;
-            cout << i << " " << j << endl;
             left = min(left, j);
             top = min(top, i);
             right = max(right, j);
