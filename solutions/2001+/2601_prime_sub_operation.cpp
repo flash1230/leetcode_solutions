@@ -1,4 +1,4 @@
-/* https://leetcode.com/problems/prime-subtraction-operation/description/
+/* https://leetcode.com/problems/prime-subtraction-operation/
 2601. Prime Subtraction Operation
 Medium
 Greedy
