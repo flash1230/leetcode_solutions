@@ -1,4 +1,4 @@
-/* https://leetcode.com/problems/largest-number/description/
+/* https://leetcode.com/problems/largest-number/
 179. Largest Number
 Medium
 Sorting

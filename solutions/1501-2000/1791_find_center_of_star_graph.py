@@ -1,4 +1,4 @@
-# https://leetcode.com/problems/find-center-of-star-graph/description
+# https://leetcode.com/problems/find-center-of-star-graph/
 # 1791. Find Center of Star Graph
 # Easy
 # Graph
